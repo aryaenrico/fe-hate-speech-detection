@@ -1,16 +1,43 @@
 import { useState } from "react";
 import axios from "axios";
+import {Table,Button,Row} from 'react-bootstrap';
 
 function FileUploader() {
-
   const [selectedFile, setSelectedFile] = useState(null);
-  
-  let  [datafile,setDataFile] = useState({tweet:"",tanggal:"",klasifikasi:""});
- let [datalower,setDataFilelower] = useState({tweet:"",tanggal:"",klasifikasi:""});
-  let [datamention,setDataFilemention] = useState({tweet:"",tanggal:"",klasifikasi:""});
-  let [dataSlang,setDataFileslang] = useState({tweet:"",tanggal:"",klasifikasi:""});
-  let [dataStop,setDataFilestop] = useState({tweet:"",tanggal:"",klasifikasi:""});
- 
+
+  let [datafile, setDataFile] = useState({
+    tweet: "",
+    tanggal: "",
+    klasifikasi: "",
+  });
+  let [datalower, setDataFilelower] = useState({
+    tweet: "",
+    tanggal: "",
+    klasifikasi: "",
+  });
+  let [datamention, setDataFilemention] = useState({
+    tweet: "",
+    tanggal: "",
+    klasifikasi: "",
+  });
+  let [dataSlang, setDataFileslang] = useState({
+    tweet: "",
+    tanggal: "",
+    klasifikasi: "",
+  });
+
+  let [dataStemming, setDataFilestem] = useState({
+    tweet: "",
+    tanggal: "",
+    klasifikasi: "",
+  });
+
+
+  let [dataStop, setDataFilestop] = useState({
+    tweet: "",
+    tanggal: "",
+    klasifikasi: "",
+  });
 
   const handleFileInputChange = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -27,47 +54,51 @@ function FileUploader() {
             "Content-Type": "multipart/form-data",
           },
         })
-        .then( (res) => {
+        .then((res) => {
           alert("success");
-          setDataFile(datafile ={...res.data.dataAsli});
-          setDataFilelower(datalower = {...res.data.lowerCase});
-          setDataFilemention(datamention = {...res.data.removeMention});
-          setDataFileslang(dataSlang = {...res.data.slangWord});
-          setDataFilestop(dataStop = {...res.data.stopWord});
+          setDataFile((datafile = { ...res.data.dataAsli }));
+          setDataFilelower((datalower = { ...res.data.lowerCase }));
+          setDataFilemention((datamention = { ...res.data.removeMention }));
+          setDataFileslang((dataSlang = { ...res.data.slangWord }));
+          setDataFilestem((dataSlang = { ...res.data.stemming }));
+          setDataFilestop((dataStop = { ...res.data.stopWord }));
           console.info(datafile);
         });
-        
     } catch (error) {
-      alert(error.message);
+      alert(error.response.data.message);
     }
   };
 
   return (
-    <div>
+    <>
+      
       <input type="file" onChange={handleFileInputChange} />
-      <button onClick={handleUploadClick}>Upload</button>
-      <table border={1}>
-        <thead>
-        <th>Data Asli</th>
-        <th>Lower Case</th>
-        <th>Mention dan link</th>
-        <th>Slang World</th>
-        <th>Stop Word</th>
-        </thead>
-        <tr>
-        <td>{datafile.tweet ?? ""}</td>
-        <td>{datalower.tweet ?? ""}</td>
-        <td>{datamention.tweet ?? ""}</td>
-        <td>{dataSlang.tweet  ?? ""}</td>
-        <td>{dataStop.tweet  ?? ""}</td>
-      </tr>
-       
-        
+      <Button variant="success" onClick={handleUploadClick} >Upload</Button>
      
-      </table>
-      
-      
-    </div>
+
+      <Table striped bordered hover border={1} className="mt-2">
+      <thead>
+        <tr>
+          <th>Data Asli</th>
+          <th>Lower Case</th>
+          <th>Mention dan link</th>
+          <th>Slang World</th>
+          <th>Stemming</th>
+          <th>Stop Word</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr>
+          <td>{datafile.tweet ?? ""}</td>
+          <td>{datalower.tweet ?? ""}</td>
+          <td>{datamention.tweet ?? ""}</td>
+          <td>{dataSlang.tweet ?? ""}</td>
+          <td>{dataStemming.tweet ?? ""}</td>
+          <td>{dataStop.tweet ?? ""}</td>
+        </tr>
+      </tbody>
+    </Table>
+    </>
   );
 }
 
