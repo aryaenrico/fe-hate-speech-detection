@@ -1,12 +1,13 @@
 
-import { FileUploader } from './component'
- import './App.css'
+import { FileUploader,NavigationBar } from './component';
+
 
 function App() {
   
 
   return (
     <>
+    <NavigationBar/>
     <FileUploader></FileUploader>
     </>
   )

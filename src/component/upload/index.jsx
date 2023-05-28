@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
-import {Table,Button,Row} from 'react-bootstrap';
+import { Table, Button, Container,Row } from "react-bootstrap";
+// import Style from "./upload.module.css";
 
 function FileUploader() {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -31,7 +32,6 @@ function FileUploader() {
     tanggal: "",
     klasifikasi: "",
   });
-
 
   let [dataStop, setDataFilestop] = useState({
     tweet: "",
@@ -68,36 +68,43 @@ function FileUploader() {
       alert(error.response.data.message);
     }
   };
+  const style = ` justify-content-center`;
 
   return (
     <>
       
-      <input type="file" onChange={handleFileInputChange} />
-      <Button variant="success" onClick={handleUploadClick} >Upload</Button>
-     
+        <Container>
+        <Row className={style}>
+          <input type="file" onChange={handleFileInputChange} className="mt-2 mb-2"/>
+          <Button variant="success" onClick={handleUploadClick}>
+            Upload
+          </Button>
+          </Row>
+        </Container>
+      
 
       <Table striped bordered hover border={1} className="mt-2">
-      <thead>
-        <tr>
-          <th>Data Asli</th>
-          <th>Lower Case</th>
-          <th>Mention dan link</th>
-          <th>Slang World</th>
-          <th>Stemming</th>
-          <th>Stop Word</th>
-        </tr>
-      </thead>
-      <tbody>
-      <tr>
-          <td>{datafile.tweet ?? ""}</td>
-          <td>{datalower.tweet ?? ""}</td>
-          <td>{datamention.tweet ?? ""}</td>
-          <td>{dataSlang.tweet ?? ""}</td>
-          <td>{dataStemming.tweet ?? ""}</td>
-          <td>{dataStop.tweet ?? ""}</td>
-        </tr>
-      </tbody>
-    </Table>
+        <thead>
+          <tr>
+            <th>Data Asli</th>
+            <th>Lower Case</th>
+            <th>Mention dan link</th>
+            <th>Slang World</th>
+            <th>Stemming</th>
+            <th>Stop Word</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{datafile.tweet ?? ""}</td>
+            <td>{datalower.tweet ?? ""}</td>
+            <td>{datamention.tweet ?? ""}</td>
+            <td>{dataSlang.tweet ?? ""}</td>
+            <td>{dataStemming.tweet ?? ""}</td>
+            <td>{dataStop.tweet ?? ""}</td>
+          </tr>
+        </tbody>
+      </Table>
     </>
   );
 }
