@@ -9,7 +9,7 @@ function NavigationBar() {
         <Container>
           <Navbar.Brand href="#home">Navbar</Navbar.Brand>
           <Nav className="ms-auto">
-            <Nav.Link href="#home">Preprocessing</Nav.Link>
+            <Nav.Link href="/">Preprocessing</Nav.Link>
             <Nav.Link href="pengujian">Pengujian</Nav.Link>
             <Nav.Link href="#pricing">Testing</Nav.Link>
           </Nav>
