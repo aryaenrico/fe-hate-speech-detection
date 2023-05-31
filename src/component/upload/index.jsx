@@ -5,6 +5,7 @@ import { Table, Button, Container,Row } from "react-bootstrap";
 
 function FileUploader() {
   const [selectedFile, setSelectedFile] = useState(null);
+  const [flag, setFlag] = useState(true);
 
   let [datafile, setDataFile] = useState({
     tweet: "",
@@ -46,6 +47,7 @@ function FileUploader() {
   const handleUploadClick = async () => {
     const formData = new FormData();
     formData.append("file", selectedFile);
+    setFlag(false);
 
     try {
       await axios
@@ -62,7 +64,6 @@ function FileUploader() {
           setDataFileslang((dataSlang = { ...res.data.slangWord }));
           setDataFilestem((dataSlang = { ...res.data.stemming }));
           setDataFilestop((dataStop = { ...res.data.stopWord }));
-          console.info(datafile);
         });
     } catch (error) {
       alert(error.response.data.message);
@@ -81,30 +82,75 @@ function FileUploader() {
           </Button>
           </Row>
         </Container>
-      
-
-      <Table striped bordered hover border={1} className="mt-2">
+        {flag ?<div></div>:
+        
+       <>
+       <p className="mt-2 mb-2 text-center">Contoh Hasil Dari Preprocessing data Dalam file </p>
+        <Table striped bordered hover border={1} className="mt-2">
         <thead>
           <tr>
             <th>Data Asli</th>
             <th>Lower Case</th>
-            <th>Mention dan link</th>
-            <th>Slang World</th>
-            <th>Stemming</th>
-            <th>Stop Word</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>{datafile.tweet ?? ""}</td>
             <td>{datalower.tweet ?? ""}</td>
+          </tr>
+        </tbody>
+        <thead>
+          <tr>
+            <th>Data Asli</th>
+            <th>Remove Mention</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{datafile.tweet ?? ""}</td>
             <td>{datamention.tweet ?? ""}</td>
+          </tr>
+        </tbody>
+
+        <thead>
+          <tr>
+            <th>Data Asli</th>
+            <th>Slang Word</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{datafile.tweet ?? ""}</td>
             <td>{dataSlang.tweet ?? ""}</td>
+          </tr>
+        </tbody>
+
+        <thead>
+          <tr>
+            <th>Data Asli</th>
+            <th>Stemming</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{datafile.tweet ?? ""}</td>
             <td>{dataStemming.tweet ?? ""}</td>
+          </tr>
+        </tbody>
+        <thead>
+          <tr>
+            <th>Data Asli</th>
+            <th>Stop Word</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{datafile.tweet ?? ""}</td>
             <td>{dataStop.tweet ?? ""}</td>
           </tr>
         </tbody>
       </Table>
+      </>}
     </>
   );
 }
