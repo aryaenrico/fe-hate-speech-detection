@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import { Clasificattion } from './component/index.jsx'
+import { AddDataSet } from './component/formAddDataset/index.jsx'
 import { createBrowserRouter,RouterProvider } from 'react-router-dom'
 import { ErrorPage } from './component/errorPage/index.jsx'
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
   {
     path:"/pengujian",
     element:<Clasificattion/>
+  },
+  {
+    path:"/dataset",
+    element:<AddDataSet/>
   },
 ])
 
