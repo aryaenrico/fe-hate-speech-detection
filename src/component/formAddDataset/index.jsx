@@ -5,6 +5,7 @@ import { Form, Button, Row, Col, Container,Table } from "react-bootstrap";
 function AddDataSet() {
   const [tweets, setTweet] = useState("");
   const [kelas, setKelas] = useState(0);
+  
   const [currentObj,setResult] =useState({
     data_asli:'',
     data_case_folding:'',
@@ -69,6 +70,7 @@ function AddDataSet() {
               <option value="penghinaan">Penghinaan</option>
               <option value="ancaman kekerasan">Ancaman Kekerasan</option>
               <option value="diskriminatif">Diskirminatif</option>
+              <option value="provokasi">Provokasi</option>
               <option value="non hs">Non Hs</option>
             </Form.Select>
           </Col>

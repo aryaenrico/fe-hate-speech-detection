@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import { Clasificattion } from './component/index.jsx'
 import { AddDataSet } from './component/formAddDataset/index.jsx'
+import { TestingData } from './component/dataTesting/index.jsx'
 import { createBrowserRouter,RouterProvider } from 'react-router-dom'
 import { ErrorPage } from './component/errorPage/index.jsx'
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
     path:"/dataset",
     element:<AddDataSet/>
   },
+  {
+    path:"/testing",
+    element:<TestingData/>
+  }
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
