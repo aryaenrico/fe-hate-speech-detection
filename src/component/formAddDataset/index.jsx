@@ -66,7 +66,7 @@ function AddDataSet() {
             <Form.Select
               aria-label="Default select example"
               onChange={(e) => setKelas(e.target.value)}
-            >
+            ><option>Pilih Kelas</option>
               <option value="penghinaan">Penghinaan</option>
               <option value="ancaman kekerasan">Ancaman Kekerasan</option>
               <option value="diskriminatif">Diskirminatif</option>

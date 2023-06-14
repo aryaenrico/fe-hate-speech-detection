@@ -1,7 +1,16 @@
 import { NavigationBar } from "../navbar";
 import { Form, Button, Row, Col, Container, Table } from "react-bootstrap";
+import { useSelector, useDispatch } from 'react-redux'
+import { change } from "../../app/reducers/dataSlice";
 
 function Clasificattion() {
+  const data = useSelector((state) => state.data.angka)
+  const dispatch = useDispatch();
+  const handlesubmit2 =()=>{
+    dispatch(change());
+    alert(data[0]);
+  }
+ 
   return (
     <>
       <NavigationBar />
@@ -30,7 +39,7 @@ function Clasificattion() {
             </Form.Select>
           </Col>
           <Col lg={2}>
-            <Button>Process</Button>
+            <Button onClick={handlesubmit2}>Process</Button>
           </Col>
         </Row>
       </Container>

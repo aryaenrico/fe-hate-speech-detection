@@ -2,11 +2,16 @@ import { useState } from "react";
 import { NavigationBar } from "../navbar";
 import axios from "axios";
 import { Form, Button, Row, Col, Container, Table } from "react-bootstrap";
+import Style from "./dataTesting.module.css";
+
 
 function TestingData() {
   const [dataTesting, setResult] = useState("");
   const [flag, setFlag] = useState(true);
   const [dataTestingResult, setResultTesting] = useState({});
+
+  
+  
 
   const handleSubmit = async () => {
     try {
@@ -188,7 +193,7 @@ function TestingData() {
                 </tr>
                 <tr>
                   <td>result</td>
-                  <td colSpan={dataTestingResult.datacleanArr.length} className="text-center">{dataTestingResult.resultpositif}</td>
+                  <td colSpan={dataTestingResult.datacleanArr.length} className={Style.text}>{dataTestingResult.resultpositif}</td>
                 </tr>
                 
               </tbody>
@@ -216,7 +221,7 @@ function TestingData() {
                 </tr>
                 <tr>
                   <td>result</td>
-                  <td colSpan={dataTestingResult.datacleanArr.length} className="text-center">{dataTestingResult.resultpenghinaan}</td>
+                  <td colSpan={dataTestingResult.datacleanArr.length} className={Style.text}>{dataTestingResult.resultpenghinaan}</td>
                 </tr>
                 
               </tbody>
@@ -244,7 +249,7 @@ function TestingData() {
                 </tr>
                 <tr>
                   <td>result</td>
-                  <td colSpan={dataTestingResult.datacleanArr.length} className="text-center">{dataTestingResult.resultprovokasi}</td>
+                  <td colSpan={dataTestingResult.datacleanArr.length} className={Style.text}>{dataTestingResult.resultprovokasi}</td>
                 </tr>
                 
               </tbody>
@@ -272,7 +277,7 @@ function TestingData() {
                 </tr>
                 <tr>
                   <td>result</td>
-                  <td colSpan={dataTestingResult.datacleanArr.length} className="text-center">{dataTestingResult.resultancamankekerasan}</td>
+                  <td colSpan={dataTestingResult.datacleanArr.length} className={Style.text}>{dataTestingResult.resultancamankekerasan}</td>
                 </tr>
                 
               </tbody>
@@ -280,11 +285,10 @@ function TestingData() {
 
       
           </div>
-
-          
         )}
       </Container>
     </>
   );
 }
+
 export { TestingData };
