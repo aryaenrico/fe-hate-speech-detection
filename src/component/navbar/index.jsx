@@ -20,7 +20,7 @@ function NavigationBar() {
             <NavDropdown.Item > <Link to={`/testing`} className={Style.text2}>Data Test</Link></NavDropdown.Item>
             <NavDropdown.Item > <Link to={`/dataset`} className={Style.text2}>Add Dataset</Link></NavDropdown.Item>
             <NavDropdown.Item >
-            <Link to={`/dataset`} className={Style.text2}>Data Test Excel</Link>
+            <Link to={`/testings`} className={Style.text2}>Data Test Excel</Link>
             </NavDropdown.Item>
           </NavDropdown>
           </Nav>

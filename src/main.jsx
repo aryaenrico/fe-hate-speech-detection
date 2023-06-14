@@ -10,6 +10,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import store from './app/store.js';
 import { Provider } from 'react-redux'
+import { TestingExcel } from './component/dataTestingExcel/index.jsx'
 const router = createBrowserRouter([
   {
     path:"/",
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
   {
     path:"/testing",
     element:<TestingData/>
+  },
+  {
+    path:"/testings",
+    element:<TestingExcel/>
   }
 ])
 
