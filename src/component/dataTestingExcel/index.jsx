@@ -34,7 +34,7 @@ function TestingExcel() {
            ...resultDataTest,
            ...res.data         
          })
-				 console.log(res.data);
+				
 			
 
         });
@@ -55,8 +55,7 @@ function TestingExcel() {
           </Button>
           </Row>
         </Container>
-        {flag ?<div></div>:
-        
+        {flag ?<div></div>:        
        <>
        <p className="mt-2 mb-2 text-center">Hasil Data Testing</p>
         <Table striped bordered hover border={1} className="mt-2">
@@ -82,7 +81,6 @@ function TestingExcel() {
 						<td>{resultDataTest.perhitungan[index][3]}</td>
           </tr>
         ))}
-
         </tbody>
           
       </Table>

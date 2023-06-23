@@ -104,13 +104,7 @@ function TestingData() {
                     <td>{item}</td>
                   ))}
                 </tr>
-                <tr>
-                  <td>Ancaman Kekerasan</td>
-                  {dataTestingResult.termAncamanKekerasan.map((item) => (
-                    // eslint-disable-next-line react/jsx-key
-                    <td>{item}</td>
-                  ))}
-                </tr>
+
               </tbody>
             </Table>
 
@@ -123,7 +117,6 @@ function TestingData() {
                   <th>Non hs</th>
                   <th>Penghinaan</th>
                   <th>Provokasi</th>
-                  <th>Ancaman Kekerasan</th>
                 </tr>
               </thead>
               <tbody>
@@ -132,7 +125,6 @@ function TestingData() {
                   <td>{dataTestingResult.probPositif}</td>
                   <td>{dataTestingResult.probPenghinaan}</td>
                   <td>{dataTestingResult.probProvokasi}</td>
-                  <td>{dataTestingResult.probAncamanKekerasan}</td>  
                 </tr>
                 
               </tbody>
@@ -146,7 +138,7 @@ function TestingData() {
                   <th>Non hs</th>
                   <th>Penghinaan</th>
                   <th>Provokasi</th>
-                  <th>Ancaman Kekerasan</th>
+                  
                 </tr>
               </thead>
               <tbody>
@@ -155,7 +147,6 @@ function TestingData() {
                   <td>{dataTestingResult.weight[0]}</td>
                   <td>{dataTestingResult.weight[1]}</td>
                   <td>{dataTestingResult.weight[2]}</td>
-                  <td>{dataTestingResult.weight[3]}</td>
                 </tr>
               </tbody>
             </Table>
@@ -165,7 +156,7 @@ function TestingData() {
             <thead>
                 <tr>
                   <th>Nilai</th>
-                  <th>{dataTestingResult.weight[4]}</th>
+                  <th>{dataTestingResult.weight[3]}</th>
                 </tr>
               </thead>
             </Table>
@@ -254,37 +245,7 @@ function TestingData() {
                 
               </tbody>
             </Table>
-
-            <h2>perhitungan pada kelas Ancaman Kekerasan</h2>
-            <Table striped bordered hover className="mt-2">
-              <thead>
-                <tr>
-                  <th>Ancaman Kekerasan</th>
-                  {dataTestingResult.datacleanArr.map((item) => (
-                    // eslint-disable-next-line react/jsx-key
-                    <th>{item}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>nilai</td>
-                  {dataTestingResult.perhitungan_ancaman_kekerasan.map((item) => (
-                    // eslint-disable-next-line react/jsx-key
-                    <td>{item}</td>
-                  ))}
-                  
-                </tr>
-                <tr>
-                  <td>result</td>
-                  <td colSpan={dataTestingResult.datacleanArr.length} className={Style.text}>{dataTestingResult.resultancamankekerasan}</td>
-                </tr>
-                
-              </tbody>
-            </Table>
-
-      
-          </div>
+            </div>
         )}
       </Container>
     </>
