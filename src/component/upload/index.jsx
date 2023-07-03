@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { NavigationBar } from "../navbar";
 import { Table, Button, Container,Row } from "react-bootstrap";
 // import Style from "./upload.module.css";
 
@@ -73,12 +74,12 @@ function FileUploader() {
 
   return (
     <>
-      
+      <NavigationBar></NavigationBar>
         <Container>
         <Row className={style}>
           <input type="file" onChange={handleFileInputChange} className="mt-2 mb-2"/>
           <Button variant="success" onClick={handleUploadClick}>
-            Upload
+            Upload Dataset
           </Button>
           </Row>
         </Container>

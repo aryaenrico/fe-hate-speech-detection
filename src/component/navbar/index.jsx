@@ -10,12 +10,11 @@ function NavigationBar() {
     <>
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+          <Navbar.Brand href="#home">Arya Enrico</Navbar.Brand>
           <Nav className="ms-auto">
-          
-            <Link to={`/`} className={Style.text}>Upload Dataset</Link>
-            <Nav.Link href="pengujian">Pengujian</Nav.Link>
-            <Nav.Link href="#pricing">Testing</Nav.Link>
+            <Link to={`/`} className={Style.text}>Dashboard</Link> 
+            <Link to={`/upload`} className={Style.text}>Upload Dataset</Link>
+            <Link to={`/tweets`} className={Style.text}>Live Tweet</Link>
             <NavDropdown title="DATA" id="nav-dropdown" className={Style.textDrop}>
             <NavDropdown.Item > <Link to={`/testing`} className={Style.text2}>Data Test</Link></NavDropdown.Item>
             <NavDropdown.Item > <Link to={`/dataset`} className={Style.text2}>Add Dataset</Link></NavDropdown.Item>

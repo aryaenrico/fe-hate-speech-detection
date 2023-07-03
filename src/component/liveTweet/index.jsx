@@ -63,23 +63,24 @@ function LiveTweet() {
         <div></div>
       ) : (
         <>
-          <p className="mt-2 mb-2 text-center">Hasil Data Testing</p>
+          <p className="mt-2 mb-2 text-center">Hasil Klasifikasi Live Tweet</p>
           <Table striped bordered hover border={1} className="mt-2">
             <thead>
               <tr>
+                <th>No</th>
                 <th>Data Asli</th>
                 <th>Data Clean</th>
                 <th>Klasifikasi</th>
                 <th>Non hs</th>
                 <th>Penghinaan</th>
                 <th>Provokasi</th>
-                <th>Ancaman Kekerasan</th>
               </tr>
             </thead>
             <tbody>
               {liveTweetResult.dataAsli.map((item, index) => (
                 // eslint-disable-next-line react/jsx-key
                 <tr>
+                  <td>{index+1}</td>
                   <td>{item.tweet}</td>
                   <td>{liveTweetResult.dataclean[index].tweet}</td>
                   <td>{liveTweetResult.klasifikasi[index]}</td>

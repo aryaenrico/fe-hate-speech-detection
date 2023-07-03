@@ -7,6 +7,7 @@ import { TestingData } from './component/dataTesting/index.jsx'
 import { createBrowserRouter,RouterProvider } from 'react-router-dom'
 import { ErrorPage } from './component/errorPage/index.jsx'
 import { LiveTweet } from './component/liveTweet/index.jsx'
+import {FileUploader} from './component/upload/index.jsx'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import store from './app/store.js';
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
   },{
     path:"/tweets",
     element:<LiveTweet/>
+  },
+  {
+    path:"/upload",
+    element:<FileUploader/>
   }
 ])
 

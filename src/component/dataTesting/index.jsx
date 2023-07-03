@@ -3,6 +3,7 @@ import { NavigationBar } from "../navbar";
 import axios from "axios";
 import { Form, Button, Row, Col, Container, Table } from "react-bootstrap";
 import Style from "./dataTesting.module.css";
+import pic from "./img/tahapan.png";
 
 
 function TestingData() {
@@ -71,7 +72,74 @@ function TestingData() {
           <div></div>
         ) : (
           <div>
-            <h2 className="mt-2"> Nilai term kata pada masing-masing kelas</h2>
+            
+            <h2>langkah-langkah</h2>
+            <img src={pic} alt="tahapan naive bayes" />
+            <h2 className="mt-5">Contoh mengunakan kelas non hs </h2>
+            <h2 className="mt-3"> Perhitugan Nilai TF dan IDF term kata </h2>
+            <Table striped bordered hover className="mt-2">
+              <thead>
+                <tr>
+                <th>Kata</th>
+                <th>DOC 1</th>
+                <th>DOC 2</th>
+                <th>IDF</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{dataTestingResult.feature[0]}</td>
+                  <td>{dataTestingResult.tf1}</td>
+                  <td>{dataTestingResult.tf2}</td>
+                  <td>{dataTestingResult.idf}</td>
+                </tr>
+              </tbody>
+            </Table>
+
+            <h2 className="mt-3"> Perhitugan Nilai TF-IDF dan bobot term kata (contoh pada kelas non hs )</h2>
+            <Table striped bordered hover className="mt-2">
+              <thead>
+                <tr>
+                <th>Kata</th>
+                <th>TF-IDF</th>
+                <th>TF-IDF2</th>
+                <th>W</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{dataTestingResult.feature[0]}</td>
+                  <td>{dataTestingResult.tfdf1}</td>
+                  <td>{dataTestingResult.tfdf2}</td>
+                  <td>{dataTestingResult.sum}</td>
+                </tr>
+              </tbody>
+            </Table>
+
+
+            <h2 className="mt-4">Nilai Probabilitas Setiap kelas</h2>
+            <Table striped bordered hover className="mt-2">
+              <thead>
+                <tr>
+                  <th>Kelas</th>
+                  <th>Non hs</th>
+                  <th>Penghinaan</th>
+                  <th>Provokasi</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>nilai</td>
+                  <td>{dataTestingResult.probPositif}</td>
+                  <td>{dataTestingResult.probPenghinaan}</td>
+                  <td>{dataTestingResult.probProvokasi}</td>
+                </tr>
+                
+              </tbody>
+            </Table>
+
+
+            <h2 className="mt-4"> Nilai term kata pada masing-masing kelas</h2>
             <Table striped bordered hover className="mt-2">
               <thead>
                 <tr>
@@ -109,26 +177,7 @@ function TestingData() {
             </Table>
 
 
-            <h2>Nilai Probabilitas Setiap kelas</h2>
-            <Table striped bordered hover className="mt-2">
-              <thead>
-                <tr>
-                  <th>Kelas</th>
-                  <th>Non hs</th>
-                  <th>Penghinaan</th>
-                  <th>Provokasi</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>nilai</td>
-                  <td>{dataTestingResult.probPositif}</td>
-                  <td>{dataTestingResult.probPenghinaan}</td>
-                  <td>{dataTestingResult.probProvokasi}</td>
-                </tr>
-                
-              </tbody>
-            </Table>
+            
 
             <h2>Nilai Total term kata pada masing-masing kelas</h2>
             <Table striped bordered hover className="mt-2">

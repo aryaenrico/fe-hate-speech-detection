@@ -1,5 +1,5 @@
 
-import { FileUploader,NavigationBar } from './component';
+import { NavigationBar,Dashboard } from './component';
 
 
 function App() {
@@ -8,7 +8,8 @@ function App() {
   return (
     <>
     <NavigationBar/>
-    <FileUploader></FileUploader>
+    <Dashboard></Dashboard>
+    {/* <FileUploader></FileUploader> */}
     </>
   )
 }

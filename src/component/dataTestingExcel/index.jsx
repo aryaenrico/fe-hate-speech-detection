@@ -51,7 +51,7 @@ function TestingExcel() {
         <Row className={style}>
           <input type="file" onChange={handleFileInputChange} className="mt-2 mb-2"/>
           <Button variant="success" onClick={handleUploadClick}>
-            Upload
+            Upload Data testing
           </Button>
           </Row>
         </Container>
@@ -61,24 +61,26 @@ function TestingExcel() {
         <Table striped bordered hover border={1} className="mt-2">
         <thead>
           <tr>
+            <th>No</th>
             <th>Data Asli</th>
+            <th>Data Clean</th>
             <th>Klasifikasi</th>
 						<th>Non hs</th>
 						<th>Penghinaan</th>
 						<th>Provokasi</th>
-						<th>Ancaman Kekerasan</th>
           </tr>
         </thead>
         <tbody>
 				{resultDataTest.dataAsli.map((item,index) => (
           // eslint-disable-next-line react/jsx-key
           <tr>
+            <td>{index+1}</td>
             <td>{item.tweet}</td>
+            <td>{resultDataTest.dataClean[index].tweet}</td>
             <td>{resultDataTest.klasifikasi[index]}</td>
             <td>{resultDataTest.perhitungan[index][0]}</td>
 						<td>{resultDataTest.perhitungan[index][1]}</td>
 						<td>{resultDataTest.perhitungan[index][2]}</td>
-						<td>{resultDataTest.perhitungan[index][3]}</td>
           </tr>
         ))}
         </tbody>
