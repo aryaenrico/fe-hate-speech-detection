@@ -233,7 +233,7 @@ function TestingData() {
                 </tr>
                 <tr>
                   <td>result</td>
-                  <td colSpan={dataTestingResult.datacleanArr.length} className={Style.text}>{dataTestingResult.resultpositif}</td>
+                  {  dataTestingResult.klasifikasi =="non hs" ? <td colSpan={dataTestingResult.datacleanArr.length} className={Style.text}>{dataTestingResult.resultpositif}</td> : <td colSpan={dataTestingResult.datacleanArr.length} className={Style.text2}>{dataTestingResult.resultpositif}</td>}
                 </tr>
                 
               </tbody>
@@ -261,7 +261,8 @@ function TestingData() {
                 </tr>
                 <tr>
                   <td>result</td>
-                  <td colSpan={dataTestingResult.datacleanArr.length} className={Style.text}>{dataTestingResult.resultpenghinaan}</td>
+                  {  dataTestingResult.klasifikasi =="penghinaan" ? <td colSpan={dataTestingResult.datacleanArr.length} className={Style.text}>{dataTestingResult.resultpenghinaan}</td> : <td colSpan={dataTestingResult.datacleanArr.length} className={Style.text2}>{dataTestingResult.resultpenghinaan}</td>}
+                  
                 </tr>
                 
               </tbody>
@@ -289,7 +290,7 @@ function TestingData() {
                 </tr>
                 <tr>
                   <td>result</td>
-                  <td colSpan={dataTestingResult.datacleanArr.length} className={Style.text}>{dataTestingResult.resultprovokasi}</td>
+                  {  dataTestingResult.klasifikasi =="provokasi" ? <td colSpan={dataTestingResult.datacleanArr.length} className={Style.text}>{dataTestingResult.resultprovokasi}</td> : <td colSpan={dataTestingResult.datacleanArr.length} className={Style.text2}>{dataTestingResult.resultprovokasi}</td>}
                 </tr>
                 
               </tbody>
