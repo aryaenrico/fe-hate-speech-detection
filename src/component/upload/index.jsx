@@ -52,7 +52,7 @@ function FileUploader() {
 
     try {
       await axios
-        .post("http://localhost:8000/api/v1/file", formData, {
+        .post("http://34.128.123.202:2222/api/v1/file", formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
@@ -67,7 +67,7 @@ function FileUploader() {
           setDataFilestop((dataStop = { ...res.data.stopWord }));
         });
     } catch (error) {
-      alert(error.response.data.message);
+      alert("gagal");
     }
   };
   const style = ` justify-content-center`;

@@ -13,7 +13,7 @@ function LiveTweet() {
     try {
       await axios
         .post(
-          "http://localhost:8000/api/v1/tweets",
+          "http://34.128.123.202:2222/api/v1/tweets",
           JSON.stringify({
             keyword: keyword,
           }),

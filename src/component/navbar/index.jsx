@@ -15,6 +15,7 @@ function NavigationBar() {
             <Link to={`/`} className={Style.text}>Dashboard</Link> 
             <Link to={`/upload`} className={Style.text}>Upload Dataset</Link>
             <Link to={`/tweets`} className={Style.text}>Live Tweet</Link>
+            <Link to={`/pengujian`} className={Style.text}>Pengujian</Link>
             <NavDropdown title="DATA" id="nav-dropdown" className={Style.textDrop}>
             <NavDropdown.Item > <Link to={`/testing`} className={Style.text2}>Data Test</Link></NavDropdown.Item>
             <NavDropdown.Item > <Link to={`/dataset`} className={Style.text2}>Add Dataset</Link></NavDropdown.Item>
@@ -23,7 +24,6 @@ function NavigationBar() {
             </NavDropdown.Item>
           </NavDropdown>
           </Nav>
-          
         </Container>
       </Navbar>
     </>

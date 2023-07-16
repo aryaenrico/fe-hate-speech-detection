@@ -18,7 +18,7 @@ function TestingData() {
     try {
       await axios
         .post(
-          "http://localhost:8000/api/v1/testing",
+          "http://34.128.123.202:2222/api/v1/testing",
           JSON.stringify({
             dataTesting: dataTesting,
           }),

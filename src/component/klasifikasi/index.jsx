@@ -30,7 +30,7 @@ function Clasificattion() {
 
     try {
       await axios
-        .post("http://localhost:8000/api/v1/pengujian", formData, {
+        .post("http://34.128.123.202:2222/api/v1/pengujian", formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
@@ -59,7 +59,7 @@ function Clasificattion() {
         <Row className='justify-content-center'>
           <input type="file" onChange={handleFileInputChange} className="mt-2 mb-2"/>
           <Button variant="success" onClick={handleUploadClick}>
-            Upload Data testing
+            Upload Pengujian
           </Button>
           </Row>
         </Row>
