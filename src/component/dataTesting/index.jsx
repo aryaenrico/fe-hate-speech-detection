@@ -21,58 +21,58 @@ function TestingData() {
   // });
 
   const handleSubmit = async () => {
-    alert("tombol");
+    // alert("tombol");
    
-       fetch("https://tired-hospital-gown-pig.cyclic.app/api/v1/testing", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          dataTesting: dataTesting,
-        }),
-      }).then((value) => {
-        alert("success");
-        setFlag(false);
-        setResultTesting({
-          ...dataTestingResult,
-          ...value.json(),
-        });
-        console.log(value.json());
-      }).catch(e=>{
-        alert(e.message);
-      })
+    //    fetch("https://tired-hospital-gown-pig.cyclic.app/api/v1/testing", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify({
+    //       dataTesting: dataTesting,
+    //     }),
+    //   }).then((value) => {
+    //     alert("success");
+    //     setFlag(false);
+    //     setResultTesting({
+    //       ...dataTestingResult,
+    //       ...value.json(),
+    //     });
+    //     console.log(value.json());
+    //   }).catch(e=>{
+    //     alert(e.message);
+    //   })
        
       
      
    
 
-    // try {
-    //   await axios
-    //     .post(
-    //       "http://34.128.123.202:2222/api/v1/testing",
-    //       JSON.stringify({
-    //         dataTesting: dataTesting,
-    //       }),
-    //       {
-    //         headers: {
-    //           "Content-Type": "application/json",
-    //         },
-    //       }
-    //     )
-    //     .then((result) => {
-    //       alert("success");
-    //       setFlag(false);
-    //       setResultTesting({
-    //         ...dataTestingResult,
-    //         ...result.data,
-    //       });
+    try {
+      await axios
+        .post(
+          "https://tired-hospital-gown-pig.cyclic.app/api/v1/testing",
+          JSON.stringify({
+            dataTesting: dataTesting,
+          }),
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
+        .then((result) => {
+          alert("success");
+          setFlag(false);
+          setResultTesting({
+            ...dataTestingResult,
+            ...result.data,
+          });
 
-    //       console.info(dataTestingResult.datacleanArr);
-    //     });
-    // } catch (e) {
-    //   alert(e.message);
-    // }
+          console.info(dataTestingResult.datacleanArr);
+        });
+    } catch (e) {
+      alert(e.message);
+    }
   };
 
   return (
