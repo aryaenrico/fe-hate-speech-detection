@@ -22,7 +22,7 @@ function TestingExcel() {
 
     try {
       await axios
-        .post("http://34.128.123.202:2222/api/v1/testings", formData, {
+        .post("https://tired-hospital-gown-pig.cyclic.app/api/v1/testings", formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },

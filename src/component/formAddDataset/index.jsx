@@ -21,7 +21,7 @@ function AddDataSet() {
   const handleSubmit = async ()=> {
     
     try {
-      await axios.post('http://34.128.123.202:2222/api/v1/datasets',JSON.stringify({
+      await axios.post('https://tired-hospital-gown-pig.cyclic.app/api/v1/datasets',JSON.stringify({
         tweet:tweets,
         klasifikasi:kelas
       }),{
