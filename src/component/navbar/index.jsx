@@ -8,10 +8,10 @@ import Style from "./navbar.module.css";
 function NavigationBar() {
   return (
     <>
-      <Navbar bg="dark" variant="dark">
+      <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary" bg="dark" variant="dark">
         <Container>
           <Navbar.Brand href="#home">Arya Enrico</Navbar.Brand>
-          <Nav className="ms-auto">
+          <Nav className="me-auto">
             <Link to={`/`} className={Style.text}>Dashboard</Link> 
             <Link to={`/upload`} className={Style.text}>Upload Dataset</Link>
             <Link to={`/tweets`} className={Style.text}>Live Tweet</Link>
