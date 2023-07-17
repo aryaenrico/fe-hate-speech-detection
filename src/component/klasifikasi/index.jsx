@@ -30,7 +30,7 @@ function Clasificattion() {
 
     try {
       await axios
-        .post("https://tired-hospital-gown-pig.cyclic.app/api/v1/pengujian", formData, {
+        .post("https://docbot-middleware.up.railway.app/?target_url=http://34.128.123.202:2222/api/v1/pengujian", formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },

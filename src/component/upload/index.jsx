@@ -52,7 +52,7 @@ function FileUploader() {
 
     try {
       await axios
-        .post("http://34.128.123.202:2222/api/v1/file", formData, {
+        .post("https://docbot-middleware.up.railway.app/?target_url=http://34.128.123.202:2222/api/v1/file", formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
