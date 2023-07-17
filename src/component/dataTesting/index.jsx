@@ -5,42 +5,74 @@ import { Form, Button, Row, Col, Container, Table } from "react-bootstrap";
 import Style from "./dataTesting.module.css";
 import pic from "./img/tahapan.png";
 
-
 function TestingData() {
   const [dataTesting, setResult] = useState("");
   const [flag, setFlag] = useState(true);
   const [dataTestingResult, setResultTesting] = useState({});
-
-  
-  
+  // const request = new Request("http://34.128.123.202:2222/api/v1/testing",{
+  //   method:"POST",
+  //   headers:{
+  //     "Content-Type" : "application/json",
+  //     "Accept":"application/json"
+  //   },
+  //   body:JSON.stringify({
+  //     dataTesting:dataTesting
+  //   })
+  // });
 
   const handleSubmit = async () => {
-    try {
-      await axios
-        .post(
-          "http://34.128.123.202:2222/api/v1/testing",
-          JSON.stringify({
-            dataTesting: dataTesting,
-          }),
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        )
-        .then((result) => {
-          alert("success");
-          setFlag(false);
-          setResultTesting({
-            ...dataTestingResult,
-            ...result.data,
-          });
-
-          console.info(dataTestingResult.datacleanArr);
+    alert("tombol");
+   
+       fetch("https://tired-hospital-gown-pig.cyclic.app/api/v1/testing", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          dataTesting: dataTesting,
+        }),
+      }).then((value) => {
+        alert("success");
+        setFlag(false);
+        setResultTesting({
+          ...dataTestingResult,
+          ...value.json(),
         });
-    } catch (e) {
-      alert(e.message);
-    }
+        console.log(value.json());
+      }).catch(e=>{
+        alert(e.message);
+      })
+       
+      
+     
+   
+
+    // try {
+    //   await axios
+    //     .post(
+    //       "http://34.128.123.202:2222/api/v1/testing",
+    //       JSON.stringify({
+    //         dataTesting: dataTesting,
+    //       }),
+    //       {
+    //         headers: {
+    //           "Content-Type": "application/json",
+    //         },
+    //       }
+    //     )
+    //     .then((result) => {
+    //       alert("success");
+    //       setFlag(false);
+    //       setResultTesting({
+    //         ...dataTestingResult,
+    //         ...result.data,
+    //       });
+
+    //       console.info(dataTestingResult.datacleanArr);
+    //     });
+    // } catch (e) {
+    //   alert(e.message);
+    // }
   };
 
   return (
@@ -60,19 +92,16 @@ function TestingData() {
               </Form.Group>
             </Form>
           </Col>
-          <Col lg={2}>
-  
-            
-          </Col>
+          <Col lg={2}></Col>
         </Row>
         <Button variant="primary" onClick={handleSubmit} className="mt-1">
-              Test
-            </Button> <span>{dataTestingResult.klasifikasi ?? ""}</span>
+          Test
+        </Button>{" "}
+        <span>{dataTestingResult.klasifikasi ?? ""}</span>
         {flag ? (
           <div></div>
         ) : (
           <div>
-            
             <h2>langkah-langkah</h2>
             <img src={pic} alt="tahapan naive bayes" />
             <h2 className="mt-5">Contoh mengunakan kelas non hs </h2>
@@ -80,10 +109,10 @@ function TestingData() {
             <Table striped bordered hover className="mt-2">
               <thead>
                 <tr>
-                <th>Kata</th>
-                <th>DOC 1</th>
-                <th>DOC 2</th>
-                <th>IDF</th>
+                  <th>Kata</th>
+                  <th>DOC 1</th>
+                  <th>DOC 2</th>
+                  <th>IDF</th>
                 </tr>
               </thead>
               <tbody>
@@ -96,14 +125,18 @@ function TestingData() {
               </tbody>
             </Table>
 
-            <h2 className="mt-3"> Perhitugan Nilai TF-IDF dan bobot term kata (contoh pada kelas non hs )</h2>
+            <h2 className="mt-3">
+              {" "}
+              Perhitugan Nilai TF-IDF dan bobot term kata (contoh pada kelas non
+              hs )
+            </h2>
             <Table striped bordered hover className="mt-2">
               <thead>
                 <tr>
-                <th>Kata</th>
-                <th>TF-IDF</th>
-                <th>TF-IDF2</th>
-                <th>W</th>
+                  <th>Kata</th>
+                  <th>TF-IDF</th>
+                  <th>TF-IDF2</th>
+                  <th>W</th>
                 </tr>
               </thead>
               <tbody>
@@ -115,7 +148,6 @@ function TestingData() {
                 </tr>
               </tbody>
             </Table>
-
 
             <h2 className="mt-4">Nilai Probabilitas Setiap kelas</h2>
             <Table striped bordered hover className="mt-2">
@@ -134,11 +166,8 @@ function TestingData() {
                   <td>{dataTestingResult.probPenghinaan}</td>
                   <td>{dataTestingResult.probProvokasi}</td>
                 </tr>
-                
               </tbody>
             </Table>
-
-
             <h2 className="mt-4"> Nilai term kata pada masing-masing kelas</h2>
             <Table striped bordered hover className="mt-2">
               <thead>
@@ -172,13 +201,8 @@ function TestingData() {
                     <td>{item}</td>
                   ))}
                 </tr>
-
               </tbody>
             </Table>
-
-
-            
-
             <h2>Nilai Total term kata pada masing-masing kelas</h2>
             <Table striped bordered hover className="mt-2">
               <thead>
@@ -187,7 +211,6 @@ function TestingData() {
                   <th>Non hs</th>
                   <th>Penghinaan</th>
                   <th>Provokasi</th>
-                  
                 </tr>
               </thead>
               <tbody>
@@ -202,14 +225,13 @@ function TestingData() {
 
             <h2>Nilai total IDF untuk keseluruhan Term Data</h2>
             <Table striped bordered hover>
-            <thead>
+              <thead>
                 <tr>
                   <th>Nilai</th>
                   <th>{dataTestingResult.weight[3]}</th>
                 </tr>
               </thead>
             </Table>
-
 
             <h2>perhitungan pada kelas non hs</h2>
             <Table striped bordered hover className="mt-2">
@@ -229,13 +251,25 @@ function TestingData() {
                     // eslint-disable-next-line react/jsx-key
                     <td>{item}</td>
                   ))}
-                  
                 </tr>
                 <tr>
                   <td>result</td>
-                  {  dataTestingResult.klasifikasi =="non hs" ? <td colSpan={dataTestingResult.datacleanArr.length} className={Style.text}>{dataTestingResult.resultpositif}</td> : <td colSpan={dataTestingResult.datacleanArr.length} className={Style.text2}>{dataTestingResult.resultpositif}</td>}
+                  {dataTestingResult.klasifikasi == "non hs" ? (
+                    <td
+                      colSpan={dataTestingResult.datacleanArr.length}
+                      className={Style.text}
+                    >
+                      {dataTestingResult.resultpositif}
+                    </td>
+                  ) : (
+                    <td
+                      colSpan={dataTestingResult.datacleanArr.length}
+                      className={Style.text2}
+                    >
+                      {dataTestingResult.resultpositif}
+                    </td>
+                  )}
                 </tr>
-                
               </tbody>
             </Table>
 
@@ -257,14 +291,25 @@ function TestingData() {
                     // eslint-disable-next-line react/jsx-key
                     <td>{item}</td>
                   ))}
-                  
                 </tr>
                 <tr>
                   <td>result</td>
-                  {  dataTestingResult.klasifikasi =="penghinaan" ? <td colSpan={dataTestingResult.datacleanArr.length} className={Style.text}>{dataTestingResult.resultpenghinaan}</td> : <td colSpan={dataTestingResult.datacleanArr.length} className={Style.text2}>{dataTestingResult.resultpenghinaan}</td>}
-                  
+                  {dataTestingResult.klasifikasi == "penghinaan" ? (
+                    <td
+                      colSpan={dataTestingResult.datacleanArr.length}
+                      className={Style.text}
+                    >
+                      {dataTestingResult.resultpenghinaan}
+                    </td>
+                  ) : (
+                    <td
+                      colSpan={dataTestingResult.datacleanArr.length}
+                      className={Style.text2}
+                    >
+                      {dataTestingResult.resultpenghinaan}
+                    </td>
+                  )}
                 </tr>
-                
               </tbody>
             </Table>
 
@@ -286,16 +331,28 @@ function TestingData() {
                     // eslint-disable-next-line react/jsx-key
                     <td>{item}</td>
                   ))}
-                  
                 </tr>
                 <tr>
                   <td>result</td>
-                  {  dataTestingResult.klasifikasi =="provokasi" ? <td colSpan={dataTestingResult.datacleanArr.length} className={Style.text}>{dataTestingResult.resultprovokasi}</td> : <td colSpan={dataTestingResult.datacleanArr.length} className={Style.text2}>{dataTestingResult.resultprovokasi}</td>}
+                  {dataTestingResult.klasifikasi == "provokasi" ? (
+                    <td
+                      colSpan={dataTestingResult.datacleanArr.length}
+                      className={Style.text}
+                    >
+                      {dataTestingResult.resultprovokasi}
+                    </td>
+                  ) : (
+                    <td
+                      colSpan={dataTestingResult.datacleanArr.length}
+                      className={Style.text2}
+                    >
+                      {dataTestingResult.resultprovokasi}
+                    </td>
+                  )}
                 </tr>
-                
               </tbody>
             </Table>
-            </div>
+          </div>
         )}
       </Container>
     </>
