@@ -68,8 +68,6 @@ function AddDataSet() {
               onChange={(e) => setKelas(e.target.value)}
             ><option>Pilih Kelas</option>
               <option value="penghinaan">Penghinaan</option>
-              <option value="ancaman kekerasan">Ancaman Kekerasan</option>
-              <option value="diskriminatif">Diskirminatif</option>
               <option value="provokasi">Provokasi</option>
               <option value="non hs">Non Hs</option>
             </Form.Select>
